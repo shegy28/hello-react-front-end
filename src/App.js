@@ -1,10 +1,19 @@
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Greeting from './features/greetings/Greeting.jsx';
+import store from './features/greetings/greetingStore';
 
 function App() {
   return (
-    <div className="App">
-      hello
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Greeting />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
